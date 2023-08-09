@@ -1,0 +1,106 @@
+<div style="padding-top: 65px; width: 83vw;">
+  <div class="container pt-5">
+    <div class="row flex-lg-nowrap">
+    
+      <div class="col">
+        <div class="row">
+          <div class="col mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="e-profile">
+                  <div class="tab-content pt-3">
+                    <div class="tab-pane active">
+                      <form class="form" novalidate="">
+                        <div class="row">
+                          <div class="col">
+                            <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                  <label>Name</label>
+                                  <input class="form-control" type="text" name="name" placeholder="Your Name" value={{currentUser.name}} disabled readonly>
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                  <label>Team</label>
+                                  <input class="form-control" type="text" name="username" value={{currentUser.team.name}} disabled readonly>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 mt-3">
+                                <h4>Skills:</h4>
+                                <mat-form-field class="example-form-field" style="display: flex; flex-wrap: wrap;" >
+                                  <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="formControl" >
+                                    <mat-chip-row  *ngFor="let keyword of currentUser.skills" (removed)="removeKeyword(keyword)">
+                                      {{keyword.name}}
+                                    </mat-chip-row>
+                                  </mat-chip-grid>
+                                  <input class="mt-2" placeholder="Add New skill..."
+                                          [matChipInputFor]="chipGrid"
+                                          (matChipInputTokenEnd)="add($event)" />
+                                </mat-form-field>
+                                
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col d-flex justify-content-end">
+                            <button class="btn btn-primary" type="button" (click)="saveKeywords()">Save Changes</button>
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-12 col-md-3 mb-3">
+            <div class="card mb-3 px-2">
+              <div class="col-12 col-sm-auto m-3">
+                <div class="mx-auto" style="width: 140px;">
+                  <img
+                    src={{currentUser.profileImg}}
+                    alt="User Profile"
+                    width="140"
+                    height="140"
+                    style="border-radius: 50%;"
+                  />
+                </div>
+              </div>
+              <div class="col mb-3">
+                <div class="text-center text-sm-left mb-2 mb-sm-0">
+                  <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{currentUser.name}}</h4>
+                  <p class="mb-0">{{currentUser.email_id}}</p>
+                  <div class="text-muted"><small>{{currentUser.ph_no}}</small></div>
+                  <div>................</div>
+                  <!-- <form > -->
+                    <label class="form-label" for="customFile">Select file to change profile</label>
+                    <input type="file" class="form-control" id="customFile" (change)="onChange($event)" />
+                    <div class="mt-2">
+                      <button class="btn btn-primary" type="submit" (click)="onUpload()">
+                        <i class="fa fa-fw fa-camera"></i>
+                        <span>Change Photo</span>
+                      </button>
+                      <div class="container" *ngIf="loading">
+                        <h3>Loading ...</h3>
+                    </div>
+                    </div>
+                  <!-- </form> -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    </div>
+</div>

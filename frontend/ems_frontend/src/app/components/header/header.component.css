@@ -1,0 +1,22 @@
+.navbar{
+    position:fixed;
+    right: 0;
+    padding-left: 17vw;
+    z-index: 20;
+    background-color: #18A8D8;
+    /* width: ; */
+}
+.navbar-title{
+    color:whitesmoke
+}
+/* button{
+    margin-left: 2rem;
+    margin-right: 2rem;
+} */
+.mat-form-field-infix{
+    height: 5px;
+    width: 80px !important;
+}
+.user-profile{
+    margin-right: 30px;
+}

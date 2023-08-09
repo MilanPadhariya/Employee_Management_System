@@ -1,0 +1,23 @@
+<!-- <div class="main-wrapper">
+  !-- Sidenav --
+  <app-sidebar></app-sidebar>
+  
+  <div class="main-content">
+    !-- Top navbar --
+    <app-header></app-header>
+    !-- Pages--
+    !-- <router-outlet></router-outlet> --
+    <div class="container-fluid">
+    </div>
+  </div>
+</div> -->
+
+<mat-drawer-container >
+  <mat-drawer mode="side" opened="true">
+    <app-sidebar [user]="currentUser"></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,38 @@
+<main class="form-signin">
+  <form [formGroup]="formGroup" (ngSubmit)="emitLogin()">
+    <img class="mb-4" src="https://media.licdn.com/dms/image/D4D0BAQFhlAEOBf_s2A/company-logo_200_200/0/1683613511536?e=2147483647&v=beta&t=sky7Nzz-EfVSGNKndqzcr3B6w81lVHojKR2_lOEb-Ro" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">{{'loginTitle'| translate}}</h1>
+
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+      <label for="floatingInput">{{'emailTitle'| translate}}</label>
+    </div>
+    <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert alert-danger">
+      <div *ngIf="emailId.errors?.['required']">
+        email is required
+      </div>
+      <div *ngIf="emailId.errors?.['pattern']">
+        either invalid email or please log in through your office emailId
+      </div>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+      <label for="floatingPassword">{{'passwordTitle'| translate}}</label>
+    </div>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger" >
+      <div *ngIf="password.errors?.['required']">
+        password is required
+      </div>
+      <div *ngIf="password.errors?.['minlength']">
+        password should be minimum of 8 characters
+      </div>
+    </div>
+    <div class="checkbox mb-3" >
+        <p class="message" *ngIf="flag==true" class="alert alert-danger">{{errorMessage}}</p>
+        <!-- <p>form values: {{formGroup.value | json}}</p>
+        <p>Form Status: {{ formGroup.status }}</p> -->
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!formGroup.valid">{{'signInSubmitButton'|translate}}</button>
+    <p class="mt-5 mb-3 text-muted">© 2023</p>
+  </form>
+</main>

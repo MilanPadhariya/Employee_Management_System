@@ -1,0 +1,31 @@
+module.exports=(sequelize,DataTypes)=>{
+    const Project=sequelize.define("projects",{
+        Name:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            unique:true
+        },
+        company:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        project_id:{
+            type:DataTypes.UUID,
+            defaultValue:DataTypes.UUIDV4,
+            primaryKey:true,
+            allowNull:false
+        },
+        repository:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        starting_date:{
+            type:DataTypes.DATE,
+            allowNull:false
+        },
+        ending_date:{
+            type:DataTypes.DATE,
+        }
+    });
+    return Project;
+};

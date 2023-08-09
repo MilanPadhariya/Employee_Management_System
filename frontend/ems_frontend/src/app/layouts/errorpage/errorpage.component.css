@@ -1,0 +1,37 @@
+.main-container{
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+.error-container {
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+  a {
+    color: #2f80ed;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }

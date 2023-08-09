@@ -1,0 +1,152 @@
+<div class="main-container">
+  <div class="container">
+    <mat-card class="m-4">
+      <mat-card-header style="display: flex; justify-content: space-between;">
+        <mat-card-title>{{project.Name}}</mat-card-title>
+        <mat-card-subtitle class="mt-2 mb-2">{{project.company}}</mat-card-subtitle>
+        <div>
+          <button mat-icon-button (click)=goBack() aria-label="Example icon button with a filter list icon">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <br>
+          <a href="{{project.repository}}" target="_blank">Go To Repository</a>
+          <br>
+        </div>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <div style="z-index: 0;">
+          <!-- Add class 'active' to progress -->
+          <div class="cul d-flex justify-content-between label">
+            <div class="row d-flex icon-content">
+                    <p class="font-weight-buld">Starting Date</p>
+            </div>
+            <div class="row d-flex icon-content">
+                    <p class="font-weight-buld">Ending Date</p>
+            </div>
+        </div>
+          <div class="row d-flex justify-content-center">
+              <div class="cul-12">
+              <ul id="progressbar" class="text-center">
+                  <li class="active"><mat-icon class="icon">calendar_today</mat-icon></li>
+                  <li class="active"><mat-icon class="icon">calendar_today</mat-icon></li>
+              </ul>
+              </div>
+          </div>
+          <div class="cul d-flex justify-content-between top">
+              <div class="row d-flex icon-content">
+                      <p class="font-weight-buld">{{project.starting_date}}</p>
+              </div>
+              <div class="row d-flex icon-content">
+                      <p class="font-weight-buld">{{project.ending_date}}</p>
+              </div>
+          </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <h1 style="margin-left: 5vw;">People Working On the project:</h1>
+        <div>
+          <ul class="wtree">
+            <li *ngFor="let module of project.modules"><span>{{module.name}}</span>
+                <ul>
+                  <li>
+                      <div *ngIf="module.team_lead" class="">
+                        <div class="text-center card-box2">
+                            <div class="member-card">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <h4>{{module.team_lead.name}}</h4>
+                                    <p class="text-muted">{{module.team_lead.role}} | {{module.team_lead.email_id}}</p>
+                                  </div>
+                                  <div class="col-4">
+                                    <img src={{module.team_lead.profileImg}} width="60px" height="60px" style="border-radius: 50%;" alt="employee Image">
+                                  </div>
+                                </div>
+                                <div class="">
+                                  <div style="z-index: 1;margin-bottom: -100px;">
+                                    <!-- Add class 'active' to progress -->
+                                    <div class="cul d-flex justify-content-between label">
+                                      <div class="row d-flex icon-content">
+                                              <p class="font-weight-buld">Starting Date</p>
+                                      </div>
+                                      <div class="row d-flex icon-content">
+                                              <p class="font-weight-buld">Ending Date</p>
+                                      </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="cul-12">
+                                        <ul id="progressbar2" class="text-center">
+                                            <li class="active"><mat-icon class="icon">calendar_today</mat-icon></li>
+                                            <li class="active"><mat-icon class="icon">calendar_today</mat-icon></li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                    <div class="cul d-flex justify-content-between top2">
+                                        <div class="row d-flex icon-content">
+                                                <p class="font-weight-buld">{{module.team_lead.works.starting_date}}</p>
+                                        </div>
+                                        <div class="row d-flex icon-content">
+                                                <p class="font-weight-buld">{{module.team_lead.works.ending_date}}</p>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    <ul>
+                      <li *ngFor="let developer of module.users">
+                        <div class="cul-lg-4">
+                          <div class="text-center card-box">
+                              <div class="member-card">
+                                  <div class="row">
+                                    <div class="col-8">
+                                      <h4>{{developer.name}}</h4>
+                                      <p class="text-muted">{{developer.role}} | {{developer.email_id}}</p>
+                                    </div>
+                                    <div class="col-4">
+                                      <img src={{developer.profileImg}} width="60px" height="60px" style="border-radius: 50%;" alt="employee Image">
+                                    </div>
+                                  </div>
+                                  <div class="">
+                                    <div style="z-index: 1;margin-bottom: -100px;">
+                                      <!-- Add class 'active' to progress -->
+                                      <div class="cul d-flex justify-content-between label">
+                                        <div class="row d-flex icon-content">
+                                                <p class="font-weight-buld">Starting Date</p>
+                                        </div>
+                                        <div class="row d-flex icon-content">
+                                                <p class="font-weight-buld">Ending Date</p>
+                                        </div>
+                                      </div>
+                                      <div class="row d-flex justify-content-center">
+                                          <div class="cul-12">
+                                          <ul id="progressbar2" class="text-center">
+                                              <li class="active"><mat-icon class="icon">calendar_today</mat-icon></li>
+                                              <li class="active"><mat-icon class="icon">calendar_today</mat-icon></li>
+                                          </ul>
+                                          </div>
+                                      </div>
+                                      <div class="cul d-flex justify-content-between top2">
+                                          <div class="row d-flex icon-content">
+                                                  <p class="font-weight-buld">{{developer.works.starting_date}}</p>
+                                          </div>
+                                          <div class="row d-flex icon-content">
+                                                  <p class="font-weight-buld">{{developer.works.ending_date}}</p>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

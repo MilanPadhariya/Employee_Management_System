@@ -1,0 +1,56 @@
+<!-- <mat-toolbar class="navbar">
+    <span class="navbar-title">{{"dashboard_title"|translate}}</span>
+    <span class="example-spacer"></span>
+    <div style="display: flex;">
+        <span>{{currentUser}}</span>
+        <button mat-raised-button color="warn" (click)="logout()">{{'header_logout_button'|translate}}</button>
+        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end" style="list-style: none;">
+            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> languages </a>
+            <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+                <a ngbDropdownItem href="#" (click)="changeLang($event,'en')">English</a>
+                <a ngbDropdownItem href="#" (click)="changeLang($event,'hi')">Hindi</a>
+            </div>
+        </li>
+    </div>
+</mat-toolbar> -->
+<mat-toolbar class="navbar">
+    <span class="navbar-title">{{ "dashboard_title" | translate }}</span>
+    <span class="example-spacer"></span>
+    <div style="display: flex; align-items: center;">
+      <div class="user-profile" >
+        <img
+        [matMenuTriggerFor]="userProfileMenu"
+          src={{currentUserProfile}}
+          alt="User Profile"
+          width="40"
+          height="40"
+          style="border-radius: 50%; cursor: pointer;"
+        />
+      </div>
+      <mat-menu #userProfileMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="languageMenu">
+          Languages
+        </button>
+        <button mat-menu-item routerLink="./me">
+          Edit Profile
+        </button>
+        <button mat-menu-item (click)="logout()" style="background-color: rgba(255, 0, 0, 0.459);">
+          {{ 'header_logout_button' | translate }}
+        </button>
+      </mat-menu>
+      <mat-menu #languageMenu="matMenu">
+        <button mat-menu-item (click)="changeLang($event,'en')">
+          English
+        </button>
+        <button mat-menu-item (click)="changeLang($event,'hi')">
+          Hindi
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  
+  
+  
+  
+  
+  

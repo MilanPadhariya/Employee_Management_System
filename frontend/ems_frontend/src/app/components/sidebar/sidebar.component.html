@@ -1,0 +1,33 @@
+<mat-nav-list class="sidenav">
+    <!-- <div class="logo py-4">
+        <h2>
+            Infusion Analyst
+        </h2>
+    </div> -->
+    <div class="logo-container">
+        <button class="logo">IA</button>
+        <div class="logo-text">Infusion Analyst</div>
+        <!-- <button class="btn-close" ></button> -->
+    </div>
+    <mat-divider></mat-divider>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item active" 
+            *ngFor="let menu of menuItems" 
+            mat-list-item [routerLink]="menu.routeLink" 
+            routerLinkActive="sidenav-nav-item-active"
+            [ngSwitch]="menu.title">
+            <a class="sidenav-nav-link" *ngSwitchCase="sidebar_nav_item_approveLeave">
+                <i class="sidenav-nav-icon"></i>
+                <span class="sidenav-nav-text">{{menu.title| translate}}
+                    <ng-container *ngIf="notification>0">
+                        <span matBadge="{{ notification }}" matBadgeOverlap="false" matBadgeColor="warn"></span>
+                    </ng-container>
+                </span>
+            </a>            
+            <a class="sidenav-nav-link" *ngSwitchDefault>
+                <i class="sidenav-nav-icon"></i>
+                <span class="sidenav-nav-text">{{menu.title| translate}}</span>
+            </a>
+        </li>
+    </ul>
+</mat-nav-list>

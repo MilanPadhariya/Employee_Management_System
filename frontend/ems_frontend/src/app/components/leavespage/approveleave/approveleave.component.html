@@ -1,0 +1,49 @@
+<div style="width: 83vw; padding-top: 65px;">
+  <div class="m-3">
+    <table mat-table [dataSource]="leaves" class="mat-elevation-z8" style="width: 100%;">
+      <ng-container matColumnDef="employee">
+        <th mat-header-cell *matHeaderCellDef>{{'employee'|translate}} </th>
+        <td mat-cell *matCellDef="let element">
+          <img height="30px" width="30px" src={{element.user.profileImg}} style="border-radius: 50%;">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>{{'employee_name'|translate}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="start">
+        <th mat-header-cell *matHeaderCellDef>{{'start_date'|translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.start_date}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="end">
+        <th mat-header-cell *matHeaderCellDef>{{'end_date'|translate}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.end_date}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="approve">
+        <th mat-header-cell *matHeaderCellDef>{{'action_allow'|translate}}</th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          <button mat-mini-fab color="primary" (click)="onButtonClick($event,element,true)" aria-label="Example icon button with a delete icon">
+            <mat-icon>check_circle_outline</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="deny">
+        <th mat-header-cell *matHeaderCellDef>{{'action_deny'|translate}}</th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          <button mat-mini-fab color="warn" (click)="onButtonClick($event,element,false)" aria-label="Example icon button with a delete icon">
+            <mat-icon>highlight_off</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
